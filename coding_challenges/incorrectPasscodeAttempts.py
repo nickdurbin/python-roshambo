@@ -1,17 +1,17 @@
 def incorrectPasscodeAttempts(passcode, attempts):
     locked = 0
     
-    if locked < 10:
-        for attempt in attempts:
-            if attempt == passcode:
-                print(attempt)
-                locked = 0
-                continue
-            else:
-                locked += 1
-                print(locked)
+
+    for attempt in attempts:
+        if attempt != passcode:
+            locked += 1
+        else:
+            locked = 0
+        
+        if locked >= 10:
+            return True
             
-    return True
+    return False
 
 attempts = ["1111", "4444",
             "9999", "3333",
