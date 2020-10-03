@@ -13,3 +13,23 @@ def digitSumsDifference(n):
         
     
     return sum_diff
+
+# def digitSumsDifference(n):
+#     digits = list(str(n))
+#     odds_list = []
+#     even_list = []
+#     diff = 0
+#     while n > 0 :
+#         current = n % 10
+#         if current % 2 == 0:
+#             even_list.append(current)
+#         else:
+#             odds_list.append(current)
+#             # print(odds_list,even_list)
+#         print(n, current, n/10, math.floor(n / 10))
+#         n = math.floor(n / 10)
+#         # n = int(n / 10)
+#         # n = n // 10
+#     # sum odds / evens
+#     # subtract
+#     return sum(even_list) - sum(odds_list)
