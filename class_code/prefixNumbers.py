@@ -5,12 +5,9 @@ def prefixFreePhones(numbers):
         for j in range(i+1, len(numbers)):
             if numbers[j].startswith(numbers[i]):
                 return False
-                break
             if numbers[i].startswith(numbers[j]):
                 return False
-                break
-                
-    return True 
 
+    return True 
 
 # Solution needs work
