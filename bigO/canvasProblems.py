@@ -1,6 +1,7 @@
 """
 Classify the runtime complexity of the number_of_steps function below using Big O notation.
 """
+# O(log n)
 def number_of_steps(num):
     steps = 0
     while num > 0:
@@ -46,7 +47,7 @@ def sorted_squares(A):
 """
 Classify the runtime complexity of the insertion_sort function below using Big O notation.
 """
-def insertion_sort(arr):
+def insertion_sort(arr): # O(n) + O(n)
     for i in range(1, len(arr)): 
         key = arr[i]
 
