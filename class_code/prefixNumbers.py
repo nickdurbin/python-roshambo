@@ -11,9 +11,11 @@
 #     return True 
 
 # Solution needs work
+# Time Complexity == O(n log n) 
+# Space Complexity ==  O(1)
 def prefixFreePhones(numbers):
 
-    numbers.sort()
+    numbers.sort()  # O(n log n)
 
     for n in range(len(numbers) -1):
         if numbers[n+1].startswith(numbers[n]):
