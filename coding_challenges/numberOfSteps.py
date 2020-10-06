@@ -27,7 +27,9 @@
 # Input: num = 123
 # Output: 12
 
-
+# Time and Space complexity guess
+# Since we are reducing in hlaf and only adding one step
+# I will say O(log n) time and O(1) space
 def numberOfSteps(num):
   steps = 0
   while num != 0:
