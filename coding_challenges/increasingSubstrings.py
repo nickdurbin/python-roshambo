@@ -15,7 +15,7 @@ def increasingSubstrings(s):
         second_el = ord(s[i+1])
         # While loop to keep checking if the first element is lower
         # which is flawed because we need to check explicit order
-        # but for now, if lower concatenante and add to new list
+        # but for now, if lower concatenate and add to new list
         while first_el < second_el:
             first_el += second_el
             big_arr.append(first_el)
@@ -39,3 +39,16 @@ def increasingSubstrings(s):
 # If they are not end the first string and start a second string
 # Repeat the process till we hit the end of the list
 # Return the list.
+
+# function increasingSubstrings(s) {
+#     const return_array = [];
+#     let base_pointer = 0;
+#     for( i = 0; i < s.length; i++){
+#         if( s.length < 2 ) return [s[i]];
+#         if( s.charCodeAt( i + 1 ) !== s.charCodeAt(i) + 1 ){
+#             return_array.push( s.slice(base_pointer, i + 1) );
+#             base_pointer = i + 1;
+#         }
+#     }
+#     return return_array;
+# }
