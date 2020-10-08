@@ -1,33 +1,39 @@
-import string
-
 def increasingSubstrings(s):
-    # Put the elements into a list in smallest form
-    s = list(s)
-    # Possibly create an array to move elements from one to the other.
-    big_arr = []
-    print(s)
-    # Create a for loop to iterate over each element in the list
-    for i in range(len(s) - 1):
-        # Convert variables to numeric alpha
-        # Save the first item in the index in a variable
-        first_el = ord(s[i])
-        #Save the second item in the index in a variable
-        second_el = ord(s[i+1])
-        # While loop to keep checking if the first element is lower
-        # which is flawed because we need to check explicit order
-        # but for now, if lower concatenate and add to new list
-        while first_el < second_el:
-            first_el += second_el
-            big_arr.append(first_el)
-            # If first element is larger or of equal value
-            # Start a new string and the process over
-            if first_el >= second_el:
-                big_arr.append(first_el)
-            else: 
-                pass
-            
-    print(s, big_arr)
-    return big_arr
+    # Overall runtime: O(n)
+    # PLAN
+    output = []
+    cur_substring = ""
+    # iterate through s character by character
+    for c in s:             # O(n) (n = len(s))
+        # compare the current character to the previous character (or the last char in cur_substring)
+        if cur_substring == "":
+            cur_substring = c
+            continue
+        previous = cur_substring[-1]   # O(1)
+        # if it's increasing
+        if is_increasing(previous, c):  # O(1)
+            # then it's part of the same substring, append to cur substring
+            cur_substring += c
+        # else 
+        else: 
+            # we append cur_substring to our output list
+            output.append(cur_substring)    # O(1)
+            # and we have to start a new cur_substring with the current character. 
+            cur_substring = c
+    if cur_substring: 
+        output.append(cur_substring)
+    # return our output list
+    return output
+def is_increasing(char1, char2): # O(1)
+    lower = "abcdefghijklmnopqrstuvwxyz" # O(1)
+    upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    char1_index = lower.find(char1) # O(n) where n = len(lower) = 26 --> O(26) --> O(1)
+    char2_index = lower.find(char2)
+    if char1_index == -1: 
+        char1_index = upper.find(char1)
+        char2_index = upper.find(char2)
+    # if the index of char2 == index of char1 + 1:
+    return char2_index == char1_index + 1
 
 # Notes
 # Use python built in char() and ord() methods 
