@@ -40,16 +40,16 @@ def goodSubstrings(strToSplit, k):
     if cur_substring == "":
       cur_substring = c
       continue
+
+    # Get the min and max of the current string
+    min_cur = min(cur_substring)
+    max_cur = max(cur_substring)
     
     # Store last value in a variable
     previous = cur_substring[-1]
     next_c = s[1]
     first_c = cur_substring[0]
     print(first_c, c, next_c, previous)
-    
-    # Get the min and max of the current string
-    min_cur = min(cur_substring)
-    max_cur = max(cur_substring)
     
     # if the absolute difference between 2 characters
     # is less than or equal to k
@@ -68,3 +68,6 @@ def goodSubstrings(strToSplit, k):
   # Return our output list length 
   print(f"output: {output}", f"cur_string: {cur_substring}")
   return len(output)
+
+print(goodSubstrings("aaadddbbbffffppppz", 4))
+print(goodSubstrings("zaaadddbbbffffppppz", 4))
