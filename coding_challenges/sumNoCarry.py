@@ -13,9 +13,9 @@ def additionWithoutCarrying(param1, param2):
     # Add numbers till each number becomes zero 
     while (param1 or param2): 
         # Add each bits 
-        bit_sum = ((param1 % 10) + (param2 % 10))  
-        # Neglect carry 
-        bit_sum = bit_sum % 10
+        bit_sum = ((param1 % 10) + (param2 % 10))  # remember form lecture modulus 10 gets the last number
+        # Neglect carry by using modulus to grab only the last number and store it.
+        bit_sum = bit_sum % 10 
           
         # Update result 
         results = (bit_sum * multiplier) + results
