@@ -12,4 +12,4 @@
 '''
 
 def regionBySlashes(grid):
-  
+  pass
