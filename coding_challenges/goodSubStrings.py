@@ -71,3 +71,37 @@ def goodSubstrings(strToSplit, k):
 
 print(goodSubstrings("aaadddbbbffffppppz", 4))
 print(goodSubstrings("zaaadddbbbffffppppz", 4))
+
+
+# Time complexity is O(n^2)
+# def goodSubstrings(strToSplit, k):
+#     # UNDERSTAND
+#     # substring is good if absolute difference in ascii code of 2 characters <= k
+#     # can use ord to convert from character to ascii code
+#     # find the minimal number of good substrings to split it into
+#     # substring --> contiguous 
+#     # keep a count of the number of substrings
+#     count = 0
+#     current_substring_ords = []
+#     # iterate over strToSplit
+#     for c in strToSplit: 
+#         # map each character in the current substring to ascii code 
+#         current_substring_ords.append(ord(c)) # ord(c) takes c and returns the unicode / ascii code
+#         # Find the min and max ords in current_substring_ords because they'll have the biggest difference
+#         min_ord = None
+#         max_ord = None
+#         for c_ord in current_substring_ords: 
+#             if not min_ord or c_ord < min_ord:
+#                 # if the current ord is less than the min, set the min to be the current ord
+#                 min_ord = c_ord
+#             if not max_ord or c_ord > max_ord:
+#                 max_ord = c_ord
+#         # if there are two characters k apart, split
+#         if max_ord - min_ord > k:
+#             # "splitting" means we "finish" the current substring
+#             count += 1
+#             # and start a new substring with the current character
+#             current_substring_ords = [ord(c)]
+#     # add the last substring
+#     count += 1
+#     return count
