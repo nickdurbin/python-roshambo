@@ -15,4 +15,25 @@ def subtractProductAndSum(n):
   
   return product - sum_of
 
+# One liner with functools
+# return functools.reduce(lambda x,y:x*y,list(map(int,str(n))))-sum(list(map(int,str(n))))
+
 print(subtractProductAndSum(234))
+
+# C++ Solution
+
+#class Solution {
+# public:
+#     int subtractProductAndSum(int n) {
+#         int prod = 1;
+#         int sum = 0;
+#         while (n > 0)
+#         {
+#             int x =  n % 10;
+#             n /= 10;
+#             prod *= x;
+#             sum += x;
+#         }
+#         return prod - sum;
+#     }
+# };
