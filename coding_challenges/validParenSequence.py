@@ -50,6 +50,20 @@ true is the sequence is regular and false otherwise.
         
 
 def validParenthesesSequence(s):
+  # Create a stack for LIFO
+  stack = []
+  
+  # Iterate over the string to check for paren characters
+  for char in s:
+    if char == "(": 
+      stack.append(char) 
+    else: 
+      if not stack: 
+        return False
+      current_char = stack.pop() 
+      if current_char == '(': 
+        if char != ")": 
+          return False
     
   if len(s) <= 0:
     return True
