@@ -78,3 +78,24 @@ def validParenthesesSequence(s):
     return False
   else:
     return True
+
+# def validParenthesesSequence(s):
+#     # what are the rules? 
+#     # Every open parenthesis needs a close
+#     # number of open == number of closed
+#     # number of unclosed open parenthesis needs to be 0 by the end of s
+#     # you can't have a close before a corresponding open
+#     # iterate through s
+#     # keep track of the number of dangling open parens
+#     num_open = 0
+#     for c in s:
+#     # if the character is an open paren: increase dangling open parens
+#         if c == "(":
+#             num_open = num_open + 1
+#     # if it's a closed paren: decrease dangling open parens
+#         elif c == ")": 
+#             num_open = num_open - 1
+#     # if at any point we have a close before an open, we can return false
+#         if num_open < 0: 
+#             return False
+#     return num_open == 0
