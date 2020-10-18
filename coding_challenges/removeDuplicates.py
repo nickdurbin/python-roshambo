@@ -11,3 +11,4 @@ def removeDuplicates(self, S):
       return "".join(i for i in st)
 ob1 = Solution()
 print(ob1.removeDuplicates("abbacaca"))
+print(ob1.removeDuplicates("abbacacazz"))
