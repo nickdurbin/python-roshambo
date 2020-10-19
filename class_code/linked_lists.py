@@ -3,7 +3,7 @@ class Node:
     self.value = value
     self.next_node = next_node
   
-​
+  
 class LinkedList:
   def __init__(self):
     self.head = None # Stores a node, that corresponds to our first node in the list 
