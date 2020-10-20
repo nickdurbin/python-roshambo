@@ -23,12 +23,23 @@ insertValueIntoSortedLinkedList(l, value) = [0, 1, 3, 4, 6].
 '''
 
 def insertValueIntoSortedLinkedList(l, value):
-  curr_node = l
-  print(curr_node.value)
-  while curr_node.value < value:
-    next_node = curr_node.next
-    next_node.value = curr_node.next.value
-    
-    next_node.value = value
-  
-  return l
+    if l is None: 
+        return ListNode(value)
+    # Iterate to the spot in the list where we want to insert the new value
+    #   we're at the right spot when the next node is greater than the current value (and the previous is less than)
+    prev_node = None
+    next_node = l
+    while next_node is not None and value > next_node.value: 
+        prev_node = next_node
+        next_node = next_node.next
+    # insert the new value
+    #   create a new node
+    new_node = ListNode(value)
+    #   set new node.next to next node
+    new_node.next = next_node
+    #   set previous node.next to new node
+    if prev_node is not None: 
+        prev_node.next = new_node
+    else: # we're trying to insert at the beginning of the list
+        l = new_node
+    return l 
