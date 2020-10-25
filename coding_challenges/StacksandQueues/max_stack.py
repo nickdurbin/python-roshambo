@@ -35,7 +35,6 @@ class Stack:
             return None
         return self.items[-1]
 ​
-​
 class MaxStack1:
     def __init__(self):
         # Your code here
@@ -48,7 +47,6 @@ class MaxStack1:
         # Your code here
         self.stack.push(item)
         # more stuff here ?
-​
 ​
     def pop(self):
         # O(1)
@@ -83,7 +81,6 @@ class MaxStack1:
 ​
         # stack: 1, 2, 3
         # values = [3, 2, 1], stack = []
-​
 ​
 class MaxStack2:
     def __init__(self):
@@ -138,7 +135,6 @@ class MaxStack2:
             self.push(element)
         return cur_max
 ​
-​
 class MaxStack:
     def __init__(self):
         # Your code here
@@ -187,4 +183,3 @@ print(max_stack.get_max() == 2)
 max_stack.push(0)           # stack: 1, 2, 0, max_stack = 1, 2, 2
 print(max_stack.get_max() == 2)
 max_stack.pop()             # stack: 1, 2, max_stack: 1, 2
-​
