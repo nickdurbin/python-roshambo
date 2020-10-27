@@ -17,12 +17,14 @@ your function should return its minimum depth = 2.
 
 [output] integer
 '''
+
 # Binary trees are already defined with this interface:
 # class Tree(object):
 #   def __init__(self, x):
 #     self.value = x
 #     self.left = None
 #     self.right = None
+
 def minimumDepthBinaryTree(root):
     # If there is no root, then the depth should be 0
     if root == None:
@@ -31,6 +33,16 @@ def minimumDepthBinaryTree(root):
     # When we reach None on left and right just add the row we are on
     if root.left == None and root.right == None:
         return 1
+    
+    # If the left does return None we need to evaluate
+    # The right and return its depth + 1
+    if root.left == None:
+        return minimumDepthBinaryTree(root.right) + 1
+    
+    # If the right does return None we need to evaluate
+    # The left and return its depth + 1 
+    if root.right == None:
+        return minimumDepthBinaryTree(root.left) + 1
     
     # Recursively call left till we hit None
     # Then recursively call right till we hit None
@@ -41,11 +53,7 @@ def minimumDepthBinaryTree(root):
         
         # If left is less than right return it and ADD 1 to the depth total
         # Else return right plus one to the depth total
-        if left_d == None:
-            return right_d + 1
-        elif right_d == None:
+        if left_d < right_d:
             return left_d + 1
-        elif left_d != 0 or left_d != None and left_d < right_d:
-            return left_d+1
-        elif right_d != 0 or right_d != None and right_d < left_d: 
-            return right_d+1
+        else: 
+            return right_d + 1
