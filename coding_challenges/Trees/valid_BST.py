@@ -40,5 +40,34 @@ class TreeNode:
         self.right = right
 
 def is_valid_BST(self, root):
-    # Your code here
-    pass
+    # Check to see root exists
+    if root is None:
+        return -1
+
+    # See if there are any branches if not return True
+    if root.left is None and root.right is None:
+        return True
+
+    # Short circut the lookup 
+    # If left is greater than the root
+    # Return False
+    if root.left > root:
+        return False
+
+    # Same check on the right side (may not be needed)
+    if root.right < root:
+        return False
+
+    else:
+
+        # Our recursion to check all nodes starting with the left.
+        # If left checks out turn to the right nodes.
+        left_node = is_valid_BST(root.left)
+        right_node = is_valid_BST(root.right)
+
+        # If the left is smaller than the right
+        # Return True lese return False
+        if left_node < right_node:
+            return True
+        else:
+            return False
