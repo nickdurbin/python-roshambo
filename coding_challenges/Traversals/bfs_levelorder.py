@@ -35,3 +35,6 @@ def breadth_first_traversal(root):
       queue.append(node.right)
 
   return result
+
+# Resource https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/
+# https://www.geeksforgeeks.org/level-order-tree-traversal/
