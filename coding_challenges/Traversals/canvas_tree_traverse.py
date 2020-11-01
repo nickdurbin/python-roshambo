@@ -1,4 +1,6 @@
+
 '''
+
 Note: Try to solve this task without using recursion, since this is what you'll be asked to do during an interview.
 
 Given a binary tree of integers t, return its node values in the following format:

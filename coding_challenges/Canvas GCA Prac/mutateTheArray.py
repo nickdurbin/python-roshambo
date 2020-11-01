@@ -17,3 +17,4 @@ So, the resulting array after the mutation will be [4, 5, -1, 2, 1].
 '''
 
 def mutateTheArray(n, a):
+  pass
