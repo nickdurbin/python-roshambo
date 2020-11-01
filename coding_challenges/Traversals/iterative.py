@@ -1,9 +1,9 @@
 # Definition for a binary tree node.
 class TreeNode:
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 def helper(root, res):
     if root is None:
@@ -36,12 +36,12 @@ def breadth_first_traversal(root):
             queue.append(node.right)
             
     return result
-​
-​
+
+
 def iterative_pre_order(root):
     # Understand -
     # do a pre_order traversal, return the order in an array
-​
+
     # PLAN
     # an array to store the result
     result = []
@@ -67,8 +67,8 @@ def iterative_pre_order(root):
             stack.append(current.left)
     # return the result
     return result
-​
-​
+
+
 root = TreeNode(22,
                 left=TreeNode(5,
                               left=None,
@@ -79,7 +79,6 @@ root = TreeNode(22,
                                              right=TreeNode(42, left=None, right=None)),
                                right=None)
                 )
-​
-​
+                
 print(preorder_traversal(root))
 print(iterative_pre_order(root))
