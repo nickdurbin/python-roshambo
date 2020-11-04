@@ -58,13 +58,6 @@ from collections import deque
 # --> traversal of the land graph. Can do breadth first or depth first.
 
 def numIslands(grid):
-    #
-    # grid = [
-    #     ["1", "1"],
-    #     ["1", "0"],
-    #     ["1", "1"]
-    # ]
-
     # PLAN
     # start at [0][0]
     # check the value at [0][0]
