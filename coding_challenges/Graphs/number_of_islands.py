@@ -35,38 +35,29 @@ grid = [
 ​
 """
 from collections import deque
-​
+
 # Questions:
 # What kind of graph is this?
 # What are the vertices? What are the edges?
 # What is an island? In 'graph' terms, what is an island?
-​
+
 # UPER:
 # input: 2-d array (list of lists).
 # output: integer
-​
+
 # What kind of graph is this?
 # Undirected b/c we have connections in both ways.
 # what are the vertices in this graph?
 # -- each value in the 2d array is a vertex (think coordinates)
 # what are the edges / when do we have an edge?
 # -- edges are moving up / down / left / right between bits of land ("1"s)
-​
-​
+
 # want to check up/down/left/right to see if it's land or water
-​
+
 # Start at a 1 (land) and move out in all directions until we hit water
 # --> traversal of the land graph. Can do breadth first or depth first.
-​
-​
+
 def numIslands(grid):
-    #
-    # grid = [
-    #     ["1", "1"],
-    #     ["1", "0"],
-    #     ["1", "1"]
-    # ]
-​
     # PLAN
     # start at [0][0]
     # check the value at [0][0]
@@ -79,7 +70,7 @@ def numIslands(grid):
         # increment our island count
     # if it's a "0" (water):
         # don't do anything, check the next spot
-​
+
     # repeat for every location in the grid
     # as we repeat, if the new location has already been visited, that means it's part of an island we've already counted
         # --> skip it
@@ -98,13 +89,13 @@ def numIslands(grid):
                 # need to add it to visited
                 visited.update(island_nodes)
                 num_islands += 1
-​
+
     # return the number of islands
     return num_islands
-​
+
     # row is the first index (into the outer array)
     # col is the second index (into the inner array)
-​
+
 def bfs(grid, starting_location):
     # starting_location is a tuple (row_idx, col_idx)
     # From starting location, go out in each direction and add to visited array
@@ -119,56 +110,54 @@ def bfs(grid, starting_location):
         # if we've already visited, skip it
         if cur_loc in visited:
             continue
-​
+
         # "process" it / visit it
         visited.add(cur_loc)
         # add the location's outgoing edges to the queue
         row, col = cur_loc  # assign first value of the tuple to row, and second to col
-​
+
         # the possible edges go up, down, left or right
         # we need to check if the edge actually exists before we add it to the queue
         # up: [row - 1][col]
         if is_location_land(grid, row - 1, col):
             # print("adding", row - 1, col)
             queue.append((row - 1, col))
-​
+
         # down: [row + 1][col]
         if is_location_land(grid, row + 1, col):
             # print("adding", row + 1, col)
             queue.append((row + 1, col))
-​
+
         # left: [row][col - 1]
         if is_location_land(grid, row, col - 1):
             # print("adding", row + 1, col)
             queue.append((row, col - 1))
-​
+
         # right: [row][col + 1]
         if is_location_land(grid, row, col + 1):
             # print("adding", row + 1, col)
             queue.append((row, col + 1))
-​
+
     return visited
-​
-​
+
 def is_location_land(grid, row, col):
     # print("checking if valid: ", row, col)
     if not (0 <= row < len(grid)):
         return False
-​
+
     if not (0 <= col < len(grid[row])):
         return False
     # print(grid[row][col])
-​
+
     if grid[row][col] == "0":
         return False
-​
+
     return True
-​
-​
+
 grid = [
     ["1", "1"],
     ["1", "0"],
     ["1", "1"]
 ]
-​
+
 print(numIslands(grid))
