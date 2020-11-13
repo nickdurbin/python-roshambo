@@ -39,3 +39,9 @@ def csMaxNumberOfLambdas(text):
         num_of_times = num_l
   
   return num_of_times
+
+# the_string = "lambda"
+# text_list = []
+# for i in the_string:
+#     text_list.append(text.count(i))
+# return(min(text_list))
